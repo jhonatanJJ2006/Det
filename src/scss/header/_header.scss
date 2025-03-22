@@ -1,0 +1,344 @@
+@use '../base/variables' as v;
+
+.header {
+    padding: 1rem 7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.2s ease-in-out;
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+    }
+
+    &.scrolled {
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+    }
+
+    &__titulo {
+        font-size: 2.8rem;
+        font-weight: bold;
+        color: v.$blanco;
+        margin: 0;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+
+        &--item {
+            list-style: none;
+            position: relative;
+
+            a {
+                color: v.$blanco-2;
+
+                @media (max-width: 768px) {
+                    display: none;
+                }
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0%;
+                height: 2px;
+                background-color: v.$blanco;
+                transition: width 0.3s ease-in-out;
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+
+            &:hover a {
+                color: v.$blanco;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__menu {
+        font-size: 1.8rem;
+        display: none;
+        color: v.$blanco;
+
+        @media (max-width: 768px) {
+            display: block;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__imagen {
+        position: relative;
+        background-image: url(/build/img/header/background.avif),
+                          url(/build/img/header/background.webp),
+                          url(/build/img/header/background.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+
+        &--contenido {        
+            position: relative;
+            z-index: 1;
+            top: 0;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            justify-content: center;
+        }
+
+        &--persona {
+            width: 70rem;
+            height: 35rem;
+            border-radius: 2rem;
+            margin-bottom: 2rem;  
+            
+            @media (max-width: 768px) {
+                width: 90%;
+            }
+        }                              
+
+        &--nombre {
+            margin-bottom: 2rem;
+            font-size: 4.6rem;
+            font-weight: bold;
+            color: v.$blanco;
+            text-transform: uppercase;
+            font-family: "Open Sans", sans-serif;
+
+            @media (max-width: 768px) {
+                font-size: 3rem;
+            }
+
+            span {
+                color: v.$primary-color;
+            }
+        }
+
+        &--descripcion {
+            font-size: 1.8rem;
+            color: v.$blanco;
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+            white-space: nowrap;
+            border-right: 4px solid;
+            overflow: hidden;
+            width: 0;
+            animation: loop 15s steps(40) infinite, blink 0.7s infinite step-end alternate;
+
+            @media (max-width: 768px) {
+                font-size: 0.9rem;
+                width: 100%;
+                text-align: center;
+            }
+        
+            @media (max-width: 480px) {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 70ch; }
+        }
+        
+        @keyframes erasing {
+            from { width: 70ch; }
+            to { width: 0; }
+        }
+        
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        
+        @keyframes loop {
+            0%, 10% { width: 0; }     // Pausa antes de escribir
+            30% { width: 70ch; }      // Se escribe completamente
+            50% { width: 70ch; }      // Mantiene el texto visible por un momento
+            70% { width: 0; }         // Borra todo el texto
+            100% { width: 0; }        // Reinicia
+        }        
+             
+    }
+    
+    &__imagen::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 0;
+    }
+    
+    &__redes {
+
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+
+        &--red {
+            color: v.$blanco-2;
+            font-size: 1.8rem;
+            border: 1px solid v.$blanco-2;
+            border-radius: 50%;
+            width: 3.7rem;
+            height: 3.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .3s ease-in-out;
+        }
+
+        &--whatsapp:hover {
+            background-color: v.$verde;
+            border-color: v.$verde;
+        }
+        &--telegram:hover {
+            background-color: v.$azul-telegram;
+            border: 1px solid v.$azul-telegram;
+        }
+        &--phone:hover {           
+            background-color: v.$blanco; 
+            border: 1px solid v.$blanco;
+            color: v.$negro;
+        }
+        &--facebook:hover {
+            background-color: v.$azul-facebook;
+            border: 1px solid v.$azul-facebook;
+        }
+        &--linkedin:hover {
+            background-color: v.$azul-linkedin;
+            border: 1px solid v.$azul-linkedin;
+        }
+
+    }
+
+}
+
+// Overlay
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 900;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+// Menú lateral
+.header__nav--2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 280px;
+    height: 100dvh;
+    background: linear-gradient(135deg, #1d2227, #242a30);
+    padding: 2rem;
+    transition: left 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 1000;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &.active {
+        left: 0;
+    }
+
+    h1 {
+        color: white;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: 'Open Sans', sans-serif;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    li {
+        margin-bottom: 1.2rem;
+        text-align: center;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.05);
+        transition: background 0.3s ease, transform 0.2s ease;
+
+        &:hover {
+            color: gold;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+    }
+}
+
+// Botón de menú
+.header__menu {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2.4rem;
+    cursor: pointer;
+    color: white;
+    z-index: 1100;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: rotate(90deg);
+    }
+}

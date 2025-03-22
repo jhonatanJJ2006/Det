@@ -1,0 +1,16 @@
+{
+    "name": "detcomputers/pagina-det",
+    "description": "Pagina Web Portafolio",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.5",
+        "resend/resend-php": "^0.15.2"
+    }
+}
