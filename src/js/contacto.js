@@ -10,6 +10,16 @@
             const correo = document.querySelector("#email").value.trim();
             const mensaje = document.querySelector("#mensaje").value.trim();
 
+            // Validación básica
+            if (!nombre || !apellido || !correo || !mensaje) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "Todos los campos son obligatorios.",
+                });
+                return; // Detener el envío si falta algún campo
+            }
+
             const data = new FormData();
             data.append("nombre", nombre);
             data.append("apellido", apellido);
@@ -21,7 +31,7 @@
             console.log(correo);
             console.log(mensaje);
 
-            fetch("/email/enviar", {
+            fetch("/email/enviar", { // Asegúrate de que esta ruta apunte a tu archivo PHP
                 method: "POST",
                 body: data,
             })
