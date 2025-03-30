@@ -1146,10 +1146,18 @@ p, div, a {
 }
 
 .activo {
-  max-height: 300px;
+  max-height: 30rem;
   padding: 1rem 2rem;
 }
 
+@media (max-width: 768px) {
+  .activo {
+    max-height: 50rem;
+  }
+  .activo p {
+    font-size: 1.2rem;
+  }
+}
 .abierto {
   color: white;
   background-color: #009dff;

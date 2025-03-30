@@ -8,8 +8,6 @@ class DashboardController {
 
     public static function index(Router $router) {
 
-        debuguear('si');
-
         $router->render('dashboard/index');
 
     }
