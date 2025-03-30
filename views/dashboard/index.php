@@ -246,7 +246,7 @@
                     <label for="mensaje">Mensaje</label>
                     <textarea id="mensaje" class="contacto__formulario__campo--textarea" placeholder="Tu mensaje" required></textarea>
                 </div>
-                <button type="submit" class="contacto__formulario__boton">Enviar</button>
+                <div class="contacto__formulario__boton">Enviar</div>
             </form>
 
         </div>

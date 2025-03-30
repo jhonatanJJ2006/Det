@@ -7,6 +7,7 @@ use MVC\Router;
 $router = new Router();
 
 $router->get('/', [DashboardController::class, 'index']);
+$router->post('/email/enviar', [DashboardController::class, 'emailEnviar']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

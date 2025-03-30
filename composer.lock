@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d27aa388b4cdebc288dc3c5d8a048581",
+    "content-hash": "71244a14eda6c573054de1b461017deb",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -618,16 +618,16 @@
         },
         {
             "name": "resend/resend-php",
-            "version": "v0.15.2",
+            "version": "v0.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/resend/resend-php.git",
-                "reference": "98356bf1d0631c511cb847cb6f1b55f32bc7d38d"
+                "reference": "6e9be898c9e0035a5da3c2904e86d0b12999c2fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/resend/resend-php/zipball/98356bf1d0631c511cb847cb6f1b55f32bc7d38d",
-                "reference": "98356bf1d0631c511cb847cb6f1b55f32bc7d38d",
+                "url": "https://api.github.com/repos/resend/resend-php/zipball/6e9be898c9e0035a5da3c2904e86d0b12999c2fc",
+                "reference": "6e9be898c9e0035a5da3c2904e86d0b12999c2fc",
                 "shasum": ""
             },
             "require": {
@@ -669,9 +669,9 @@
             ],
             "support": {
                 "issues": "https://github.com/resend/resend-php/issues",
-                "source": "https://github.com/resend/resend-php/tree/v0.15.2"
+                "source": "https://github.com/resend/resend-php/tree/v0.16.0"
             },
-            "time": "2025-03-14T05:34:18+00:00"
+            "time": "2025-03-24T22:12:48+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -744,10 +744,10 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
+    "platform": [],
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
