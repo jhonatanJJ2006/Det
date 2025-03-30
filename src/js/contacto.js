@@ -16,6 +16,11 @@
             data.append("correo", correo);
             data.append("mensaje", mensaje);
 
+            console.log(nombre);
+            console.log(apellido);
+            console.log(correo);
+            console.log(mensaje);
+
             fetch("/email/enviar", {
                 method: "POST",
                 body: data,
